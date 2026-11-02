@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+  <g font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" text-anchor="middle">
+    <text x="326" y="166" font-size="132" fill="#1d2b53" letter-spacing="-2">GOOD</text>
+    <text x="320" y="160" font-size="132" fill="#ff5f6d" letter-spacing="-2">GOOD</text>
+    <text x="326" y="306" font-size="132" fill="#1d2b53" letter-spacing="-2">VIBES</text>
+    <text x="320" y="300" font-size="132" fill="#ffc371" letter-spacing="-2">VIBES</text>
+  </g>
+  <g fill="#59c3c3"><path d="M40 70 l10 26 26 10 -26 10 -10 26 -10 -26 -26 -10 26 -10z"/><path d="M596 214 l8 20 20 8 -20 8 -8 20 -8 -20 -20 -8 20 -8z"/></g>
+</svg>

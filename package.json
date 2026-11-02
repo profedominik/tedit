@@ -1,0 +1,16 @@
+{
+  "name": "tshirt-designer",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Embeddable T-shirt designer web component: place, resize and rotate images on the front and back of a shirt, set shirt and background colours, and export mockups and print-ready files.",
+  "main": "tshirt-designer.js",
+  "browser": "tshirt-designer.js",
+  "scripts": {
+    "start": "node scripts/serve.cjs",
+    "test": "node tests/e2e.test.cjs"
+  },
+  "keywords": ["t-shirt", "mockup", "designer", "web-component", "custom-element", "print-on-demand", "canvas"],
+  "devDependencies": {
+    "playwright": "^1.50.0"
+  }
+}

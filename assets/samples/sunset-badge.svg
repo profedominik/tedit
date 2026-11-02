@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 600 600" width="600" height="600">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ff5f6d"/><stop offset="0.55" stop-color="#ff9a5a"/><stop offset="1" stop-color="#ffc371"/>
+    </linearGradient>
+    <clipPath id="inner"><circle cx="300" cy="300" r="212"/></clipPath>
+    <path id="top" d="M 62 300 A 238 238 0 0 1 538 300"/>
+    <path id="bottom" d="M 72 300 A 228 228 0 0 0 528 300"/>
+  </defs>
+  <circle cx="300" cy="300" r="284" fill="#1d2b53"/>
+  <circle cx="300" cy="300" r="212" fill="none" stroke="#ffc371" stroke-width="10"/>
+  <g clip-path="url(#inner)">
+    <rect x="80" y="80" width="440" height="440" fill="url(#sky)"/>
+    <circle cx="300" cy="318" r="112" fill="#fff4d6"/>
+    <g fill="#ffb067"><rect x="170" y="318" width="260" height="9"/><rect x="170" y="342" width="260" height="13"/><rect x="170" y="370" width="260" height="17"/></g>
+    <path d="M80 420 L200 292 L262 352 L344 258 L520 420 L520 520 L80 520 Z" fill="#1d2b53"/>
+    <path d="M200 292 L226 320 L211 314 L198 331 L184 312 Z M344 258 L377 296 L357 291 L343 309 L327 287 Z" fill="#fff4d6"/>
+    <path d="M80 452 Q190 424 300 452 T520 452 L520 520 L80 520 Z" fill="#2c4178"/>
+  </g>
+  <g font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" fill="#ffc371" text-anchor="middle">
+    <text font-size="40" letter-spacing="10"><textPath xlink:href="#top" startOffset="50%">STAY WILD</textPath></text>
+    <text font-size="26" letter-spacing="8" dy="20"><textPath xlink:href="#bottom" startOffset="50%">EST. 2026</textPath></text>
+  </g>
+  <g fill="#ffc371"><circle cx="58" cy="300" r="7"/><circle cx="542" cy="300" r="7"/></g>
+</svg>

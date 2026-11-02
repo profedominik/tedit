@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Embedding example — Merch dashboard</title>
+  <style>
+    :root { --brand: #0f766e; --ink: #14201f; --muted: #5d6b6a; --line: #dfe7e5; --card: #fff; --bg: #f2f6f5; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font: 14px/1.45 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: var(--ink); background: var(--bg); }
+    .app { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+    nav { background: #0b2e2b; color: #cfe5e1; padding: 20px 14px; }
+    nav .logo { display: flex; align-items: center; gap: 10px; color: #fff; font-weight: 700; font-size: 16px; margin: 0 6px 26px; }
+    nav .logo span { display: grid; place-items: center; width: 30px; height: 30px; border-radius: 8px; background: var(--brand); }
+    nav a { display: block; padding: 9px 12px; border-radius: 8px; color: inherit; text-decoration: none; margin-bottom: 2px; }
+    nav a:hover { background: rgba(255,255,255,.06); }
+    nav a.on { background: rgba(255,255,255,.12); color: #fff; font-weight: 600; }
+    main { padding: 22px 26px 40px; min-width: 0; }
+    header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 18px; flex-wrap: wrap; }
+    header h1 { margin: 0; font-size: 22px; }
+    header p { margin: 2px 0 0; color: var(--muted); }
+    .grid { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 18px; align-items: start; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 16px; }
+    .card h2 { margin: 0 0 12px; font-size: 14px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); }
+    .designer-card { padding: 0; overflow: hidden; }
+    /* The component adapts to whatever box you give it. Re-theme it with CSS variables: */
+    tshirt-designer { height: 700px; border-radius: 0; --tsd-accent: #0f766e; --tsd-accent-hover: #115e59; --tsd-accent-soft: rgba(15,118,110,.12); }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 7px 0; border-bottom: 1px dashed var(--line); }
+    .row:last-child { border-bottom: 0; }
+    .swatch { display: inline-block; width: 16px; height: 16px; border-radius: 50%; border: 1px solid rgba(0,0,0,.2); vertical-align: -3px; margin-right: 6px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 36px; padding: 0 14px; border-radius: 9px; border: 1px solid var(--line); background: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+    .btn:hover { border-color: #b9c9c6; }
+    .btn.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .btns { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+    .btns .wide { grid-column: span 2; }
+    select { height: 34px; border-radius: 8px; border: 1px solid var(--line); padding: 0 8px; font: inherit; background: #fff; }
+    .total { font-size: 22px; font-weight: 700; }
+    .previews { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 12px; }
+    .previews img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 10px; border: 1px solid var(--line); background: #f6f8f8; }
+    .log { margin: 10px 0 0; padding: 10px; border-radius: 10px; background: #f6f8f8; font: 12px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; color: #33413f; max-height: 150px; overflow: auto; white-space: pre-wrap; }
+    label.chk { display: flex; gap: 8px; align-items: center; margin-top: 12px; color: var(--muted); font-size: 13px; }
+    @media (max-width: 1100px) { .grid { grid-template-columns: 1fr; } }
+    @media (max-width: 760px) { .app { grid-template-columns: 1fr; } nav { display: none; } main { padding: 14px; } tshirt-designer { height: 760px; } }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <nav>
+      <div class="logo"><span>◆</span> Merch Studio</div>
+      <a href="#">Overview</a><a href="#">Products</a><a href="#">Orders</a><a href="#" class="on">Designer</a><a href="#">Settings</a>
+    </nav>
+    <main>
+      <header>
+        <div><h1>Custom tee</h1><p>The designer below is the <code>&lt;tshirt-designer&gt;</code> component embedded in a dashboard card.</p></div>
+        <div><button class="btn" id="dark">Toggle dark designer</button></div>
+      </header>
+      <div class="grid">
+        <section class="card designer-card">
+          <!-- hide="file": this dashboard saves designs itself, so the component's own file buttons are hidden -->
+          <tshirt-designer id="designer" hide="file" name="Team tee"></tshirt-designer>
+        </section>
+        <aside class="card">
+          <h2>Order summary</h2>
+          <div class="row"><span>Shirt colour</span><b id="o-color"><span class="swatch"></span>—</b></div>
+          <div class="row"><span>Front print</span><b id="o-front">—</b></div>
+          <div class="row"><span>Back print</span><b id="o-back">—</b></div>
+          <div class="row"><span>Size</span>
+            <select id="o-size"><option>S</option><option selected>M</option><option>L</option><option>XL</option><option>2XL</option></select></div>
+          <div class="row"><span>Quantity</span><select id="o-qty"><option>1</option><option>5</option><option selected>10</option><option>25</option><option>50</option></select></div>
+          <div class="row"><span>Total</span><span class="total" id="o-total">—</span></div>
+          <div class="btns">
+            <button class="btn" data-color="#1c1c1e">Black tee</button>
+            <button class="btn" data-color="#ffffff">White tee</button>
+            <button class="btn" id="save">Save design</button>
+            <button class="btn" id="load">Load saved</button>
+            <button class="btn primary wide" id="preview">Generate previews</button>
+          </div>
+          <div class="previews"><img id="pv-front" alt="Front preview"><img id="pv-back" alt="Back preview"></div>
+          <label class="chk"><input type="checkbox" id="intercept" checked> Send the designer's exports to this app instead of downloading</label>
+          <div class="log" id="log">Events will appear here…</div>
+        </aside>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/samples.js"></script>
+  <script src="../tshirt-designer.js"></script>
+  <script>
+    const d = document.getElementById('designer');
+    const $ = (id) => document.getElementById(id);
+    const log = (msg) => { const el = $('log'); el.textContent = (el.textContent.startsWith('Events') ? '' : el.textContent) + new Date().toLocaleTimeString() + '  ' + msg + '\n'; el.scrollTop = el.scrollHeight; };
+    d.samples = window.TSD_SAMPLES; // enables the "Try sample images" button
+
+    // Keep the order summary in sync with the design
+    function updateSummary() {
+      const front = d.getLayers('front').length, back = d.getLayers('back').length;
+      $('o-color').innerHTML = `<span class="swatch" style="background:${d.shirtColor}"></span>${d.shirtColor.toUpperCase()}`;
+      $('o-front').textContent = front ? `${front} image${front > 1 ? 's' : ''}` : 'none';
+      $('o-back').textContent = back ? `${back} image${back > 1 ? 's' : ''}` : 'none';
+      const unit = 12 + (front ? 6 : 0) + (back ? 6 : 0);
+      $('o-total').textContent = '$' + (unit * +$('o-qty').value).toFixed(2);
+    }
+    d.addEventListener('tsd-ready', () => { log('ready (v' + d.version + ')'); updateSummary(); });
+    d.addEventListener('tsd-change', (e) => { log('change: ' + e.detail.reason); updateSummary(); });
+    d.addEventListener('tsd-select', (e) => { if (e.detail.layer) log(`select: ${e.detail.layer.name} (${e.detail.layer.inches.width}" wide)`); });
+    d.addEventListener('tsd-view', (e) => log('view: ' + e.detail.view));
+    d.addEventListener('tsd-error', (e) => log('error: ' + e.detail.message));
+    d.addEventListener('tsd-export', (e) => {
+      if (!$('intercept').checked) return;
+      e.preventDefault(); // we take the Blob instead of letting the designer download it
+      log(`export intercepted: ${e.detail.filename} (${Math.round(e.detail.blob.size / 1024)} KB) — upload it to your server here`);
+    });
+    $('o-qty').addEventListener('change', updateSummary);
+
+    // Drive the designer from outside
+    document.querySelectorAll('[data-color]').forEach((b) => b.addEventListener('click', () => d.setShirtColor(b.dataset.color)));
+    $('save').addEventListener('click', () => {
+      try { localStorage.setItem('dashboard-design', JSON.stringify(d.getDesign())); log('saved to localStorage'); }
+      catch (err) { log('save failed: ' + err.message + ' (try fewer/smaller images)'); }
+    });
+    $('load').addEventListener('click', async () => {
+      const json = localStorage.getItem('dashboard-design');
+      if (!json) return log('nothing saved yet');
+      await d.loadDesign(json); log('design loaded');
+    });
+    $('preview').addEventListener('click', async () => {
+      for (const side of ['front', 'back']) {
+        const blob = await d.exportImage({ format: 'jpeg', side, width: 600, quality: 85 });
+        const img = $('pv-' + side);
+        if (img.src) URL.revokeObjectURL(img.src);
+        img.src = URL.createObjectURL(blob);
+      }
+      log('previews generated');
+    });
+    $('dark').addEventListener('click', () => d.setAttribute('theme', d.getAttribute('theme') === 'dark' ? 'light' : 'dark'));
+  </script>
+</body>
+</html>

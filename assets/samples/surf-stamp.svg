@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <rect width="600" height="600" fill="#ffffff"/>
+  <g transform="translate(300 300)">
+    <rect x="-210" y="-210" width="420" height="420" rx="44" fill="#0e7c86"/>
+    <rect x="-188" y="-188" width="376" height="376" rx="30" fill="none" stroke="#e8fbff" stroke-width="6" stroke-dasharray="2 14" stroke-linecap="round"/>
+    <circle cx="86" cy="-46" r="54" fill="#ffd166"/>
+    <path d="M-176 34 C-136 -6 -96 -6 -56 34 S24 74 64 34 S144 -6 176 34 L176 176 L-176 176 Z" fill="#59c3c3"/>
+    <path d="M-176 92 C-136 52 -96 52 -56 92 S24 132 64 92 S144 52 176 92 L176 176 L-176 176 Z" fill="#ffffff"/>
+    <path d="M-176 138 C-136 104 -96 104 -56 138 S24 172 64 138 S144 104 176 138 L176 176 L-176 176 Z" fill="#59c3c3"/>
+    <g font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif" font-weight="900" fill="#ffffff" text-anchor="middle">
+      <text y="-108" font-size="58" letter-spacing="4" x="-30">SURF</text>
+      <text y="-58" font-size="30" letter-spacing="10" x="-38">CLUB</text>
+    </g>
+  </g>
+</svg>
